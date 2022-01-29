@@ -1,10 +1,38 @@
 # Architecture
 
+## Important Thing To Know
+
+There are a few things that you should know when using or modifying this byte machine:
+
+### Allocation Limits
+
+The byte machine has a hard coded limit of 256 allocations per byte machine instance.
+
+This is because allocations are made with the linux kernel and not the C standard library.
+
+The linux kernel (at the time of writing) has roughly a default system wide maximum of 2 ^ 16 allocations.
+
+If unlimited allocations were possible by the program, and that program made too many allocations, this would break the program and possibly the OS.
+
+The byte machine's limit can be set higher, but this is not advised unless you know what you're doing.
+
+The byte machine's allocation limit was also set to improve performance by limiting time spent performing allocations.
+
+Thus you are expected to manage memory wisely by precalculating allocation sizes when possible.
+
+### Input Sub-Buffer Limits
+
+The byte machine's input sub-buffers are limited to 16 unique buffers.
+
+The input sub-buffers are intended to be configurations.
+
+The input sub-buffers are not intended for passing files that the program should be opening itself.
+
 ## Input
 
 The byte machine has one master input buffer that contains 1 - 16 sub-buffers for program input.
 
-The 16 sub-buffer maximum is arbitrary, this limit must be changed pre-compile time however.
+The 16 sub-buffer maximum is hard coded, changing it is not advised unless you know what you're doing.
 
 Reasoning:
 
