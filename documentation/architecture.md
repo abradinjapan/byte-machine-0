@@ -32,13 +32,9 @@ The input sub-buffers are not intended for passing files that the program should
 
 The byte machine has one master input buffer that contains 1 - 16 sub-buffers for program input.
 
-The 16 sub-buffer maximum is hard coded, changing it is not advised unless you know what you're doing.
+The 1st (0th indexed) input buffer must always be the program itself.
 
-Reasoning:
-
-- The 1st (0th indexed) input buffer must always be the program itself.
-- The rest of the input buffers are for configuring the program being run.
-- 16 unique inputs should be enough to configure any program; intended best practice is that the program is responsible for opening files that it needs, not the calling function.
+The rest of the input buffers are for configuring the program being run.
 
 ## Registers
 
