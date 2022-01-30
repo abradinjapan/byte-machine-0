@@ -15,7 +15,7 @@ It can:
 - Deallocate Memory
 - Manipulate Data in Memory
 
-# Can I Use This?
+## Can I Use This?
 
 Absolutely!
 
@@ -28,6 +28,6 @@ If that bothers you, then please, do not use this software.
 1. C Standard Library
 2. Various Linux Syscall Header Files
 
-# Compilation
+## Compilation
 
 `make`
