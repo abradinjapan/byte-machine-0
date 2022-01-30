@@ -26,16 +26,14 @@ The registers are:
 
 All 256 registers are fully readable and writable, there are NO restrictions; you have been warned.
 
-## How Memory is Addressed
+## Memory
 
-Memory is addressed by using virtual pointers available to the byte machine process.
-
-In other words, memory is addressed by using the hardware's virtual pointers.
-
-## Standard Data Types
-
-### Buffer
+Memory is stored in buffers.
 
 The `buffer` datatype is a 64-bit byte length combined with a 64-bit untyped pointer in that order.
 
-This is returned with every allocation request and used for every deallocation request.
+There is a maximum of 256 buffers available for allocation per byte machine instance (not including input sub-buffers).
+
+The buffer's untyped pointer is addressed by using virtual pointers available to the byte machine process.
+
+In other words, memory is addressed by using the hardware's virtual pointers.
