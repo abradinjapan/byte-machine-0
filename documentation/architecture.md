@@ -37,3 +37,9 @@ There is a maximum of 256 buffers available for allocation per byte machine inst
 The buffer's untyped pointer is addressed by using virtual pointers available to the byte machine process.
 
 In other words, memory is addressed by using the hardware's virtual pointers.
+
+## Programs
+
+Programs are always executed at byte 0 of the 0th input buffer.
+
+Programs also always quit at the first quit instruction.
